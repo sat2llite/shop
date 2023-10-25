@@ -1,6 +1,8 @@
 # Ralph Lauren
 
-React와 firebase를 사용하여 랄프 로렌 쇼핑몰을 코딩하였습니다.
+React와 firebase를 사용하여 랄프 로렌 쇼핑몰을 코딩하였습니다.<br>
+관리자 계정으로 로그인 했을 떄 상품을 등록할 수 있는 메뉴가 보이도록 하였습니다.<br>
+또한 이미지 업로드는 cloudinary를 사용하여 업로드 할 수 있도록 코딩했습니다.<br>
 
 <br>
 
@@ -12,12 +14,12 @@ React, react-router-dom, firebase tailwind, scss
 
 ## ✒️ 코드 리뷰
 
-firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현하였습니다.<br>
-우선 터미널에 firebase를 설치한 후 파이어베이스 콘솔에 있던 SDK 설정 내용을 firebase.js에 복사 붙여넣기 했습니다.<br>
+firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현합니다.<br>
+우선 터미널에 firebase를 설치한 후 해당 프로젝트 firebase 콘솔의 설정 → 프로젝트 설정 → 내 앱 SDK 설정 및 구성 안에 있는 내용을 firebase.js에 작성합니다.<br>
 
 
 ```js
-// firebasae.js
+// firebase.js
 
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
@@ -45,12 +47,15 @@ export function login() {
     .catch(console.error);
 }
 
-export function logout() {
+export async function logout() {
   return signOut(auth) // null값이 리턴됨
   .then(() => {}) // null
   // .catch((error) => {});
 }
 ```
+<br>
+
+로그인/로그아웃 상태를 바로 업데이트 할 수 있도록 함
 
 ```jsx
 // Navbar.jsx
@@ -96,6 +101,11 @@ export default function Navbar() {
     </div>
   );
 }
+```
+
+<br>
+
+```
 ```
 
 <br>
