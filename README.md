@@ -12,7 +12,9 @@ React, react-router-dom, firebase tailwind, scss
 
 ## ✒️ 코드 리뷰
 
-firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현하였습니다.
+firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현하였습니다.<br>
+우선 터미널에 firebase를 설치한 후 파이어베이스 콘솔에 있던 SDK 설정 내용을 firebase.js에 복사 붙여넣기 했습니다.<br>
+
 
 ```js
 // firebasae.js
