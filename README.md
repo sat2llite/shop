@@ -13,6 +13,7 @@ React, react-router-dom, firebase tailwind, scss
 <br>
 
 ## ✒️ 코드 리뷰
+### firebase 구글 로그인 기능 구현
 
 firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현합니다.<br>
 우선 터미널에 firebase를 설치한 후 해당 프로젝트 firebase 콘솔의 설정 → 프로젝트 설정 → 내 앱 SDK 설정 및 구성 안에 있는 내용을 firebase.js에 작성합니다.<br>
@@ -53,59 +54,31 @@ export async function logout() {
   // .catch((error) => {});
 }
 ```
+
 <br>
 
-로그인/로그아웃 상태를 바로 업데이트 할 수 있도록 함
+### firebase 특정 계정에 admin 권한 부여
 
-```jsx
-// Navbar.jsx
+```js
+// firebase.js
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { HiPencilAlt } from "react-icons/hi";
-import { login, logout } from "../api/firebase";
-
-export default function Navbar() {
-  const [user, setUser] = useState();
-
-  // onClick에 login 함수를 넣지 않고 이렇게 작성하는 이유는 firebase.js에 있는 user를 받아와서 useState에 집어넣기 위함
-  /** 
-   * 로그인할 때 사용되는 함수
-   */
-  const handleLogin = () => {
-    login().then(setUser);
-  };
-  const handleLogout = () => {
-    logout().then(setUser); // useState의 user를 비운다. (null 상태로 만듦)
-  };
-
+// 2. 사용자가 어드민 권한이 있는지 확인 -> isAdmin을 user 안에 넣음
+// 데이터베이스 안에 있는 admins를 참조하는 함수
+async function adminUser(user) {
+  // database 안에 admins key가 있음
   return (
-    <div className="border-b border-t-slate-300">
-      <div className="w-full max-w-screen-2xl m-auto">
-        <header className="flex justify-between items-center p-5">
-          <h1 className="text-3xl font-logoFont tracking-widest">
-            RALPH<span className="pl-3 md:pl-6">LAUREN</span>
-          </h1>
-
-          <nav className="flex items-center gap-4">
-            <Link to="/products">Product</Link>
-            <Link to="/cart">Cart</Link>
-            <Link to="/products/new">
-              <HiPencilAlt />
-            </Link>
-            {!user && <button onClick={handleLogin}>login</button>}
-            {user && <button onClick={handleLogout}>logout</button>}
-          </nav>
-        </header>
-      </div>
-    </div>
+    get(ref(database, "admins")) // ref(database이름, key값)
+      // 만약 snapshot(결과값)이 존재하면
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const admins = snapshot.val(); // snapshot의 value
+          const isAdmin = admins.includes(user.uid); // admins가 user.uid를 포함하는지(boolean값)
+          return { ...user, isAdmin }; // 많은 user들의 항목(전체 항목) 중에서 isAdmin 값을 끼워넣음
+        }
+        return user;
+      })
   );
 }
-```
-
-<br>
-
-```
 ```
 
 <br>
