@@ -12,6 +12,14 @@ React, react-router-dom, firebase tailwind, scss
 
 <br>
 
+---
+## 목차
+[firebase 구글 로그인 기능 구현](firebase 구글 로그인 기능 구현)
+
+<br>
+
+---
+
 ## ✒️ 코드 리뷰
 ### firebase 구글 로그인 기능 구현
 
@@ -82,3 +90,31 @@ async function adminUser(user) {
 ```
 
 <br>
+
+### cloudinary 사용하여 이미지 업로드
+
+```js
+// uploader.js
+
+// https://console.cloudinary.com/documentation/upload_images
+// * 11. uploadImage 함수 선언 (cloudinary에 올라감)
+export async function uploadImage(file) {
+  const data = new FormData();
+  const url = process.env.REACT_APP_CLOUDINARY_URL;
+
+  // 파일이 하나이기 때문에 for문 필요 없음
+  data.append("file", file);
+  data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET);
+
+  return fetch(url, {
+    method: "POST",
+    body: data
+  })
+  .then((res) => res.json()) // json 형식으로 가져옴
+  .then((data) =>  data.url) // url만
+}
+```
+
+<br>
+---
+
