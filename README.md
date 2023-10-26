@@ -6,22 +6,23 @@ React와 firebase를 사용하여 랄프 로렌 쇼핑몰을 코딩하였습니�
 
 <br>
 
-## ⚙️ 개발환경
+## 💡 목차
+[사용 언어](#개발-환경)
+[코드 내용](#코드-내용)
 
+<br>
+
+## ⚙️ 개발 환경
 React, react-router-dom, firebase tailwind, scss
 
 <br>
 
 
-## 💡 목차
-[firebase 구글 로그인 기능 구현](#firebase-구글-로그인-기능-구현) <br>
-[firebase 특정 계정에 admin 권한 부여](#firebase-특정-계정에-admin-권한-부여) <br>
-[cloudinary 사용하여 이미지 업로드](#cloudinary-사용하여-이미지-업로드) <br>
+## ✒️ 코드 내용
+- [firebase 구글 로그인 기능 구현](#firebase-구글-로그인-기능-구현) <br>
+- [firebase 특정 계정에 admin 권한 부여](#firebase-특정-계정에-admin-권한-부여) <br>
+- [cloudinary 사용하여 이미지 업로드](#cloudinary-사용하여-이미지-업로드) <br>
 
-<br>
-
-
-## ✒️ 코드 리뷰
 ### firebase 구글 로그인 기능 구현
 
 firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현합니다.<br>
