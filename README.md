@@ -23,6 +23,8 @@ React, react-router-dom, firebase tailwind, scss
 - [firebase 특정 계정에 admin 권한 부여](#firebase-특정-계정에-admin-권한-부여) <br>
 - [cloudinary 사용하여 이미지 업로드](#cloudinary-사용하여-이미지-업로드) <br>
 
+<br>
+
 ### firebase 구글 로그인 기능 구현
 
 firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현합니다.<br>
