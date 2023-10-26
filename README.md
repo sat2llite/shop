@@ -14,7 +14,7 @@ React, react-router-dom, firebase tailwind, scss
 
 ---
 ## 목차
-[firebase 구글 로그인 기능 구현](firebase 구글 로그인 기능 구현)
+[firebase 구글 로그인 기능 구현](#firebase-구글-로그인-기능-구현)
 
 <br>
 
