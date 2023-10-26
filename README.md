@@ -21,7 +21,7 @@ React, react-router-dom, firebase tailwind, scss
 <br>
 
 
-### ✒️ 코드 리뷰
+## ✒️ 코드 리뷰
 ### firebase 구글 로그인 기능 구현
 
 firebase를 사용하여 내비게이션 바 안에 구글 로그인 기능을 구현합니다.<br>
