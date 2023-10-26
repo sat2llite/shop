@@ -12,7 +12,7 @@ React, react-router-dom, firebase tailwind, scss
 
 <br>
 
----
+
 ## 💡 목차
 [firebase 구글 로그인 기능 구현](#firebase-구글-로그인-기능-구현) <br>
 [firebase 특정 계정에 admin 권한 부여](#firebase-특정-계정에-admin-권한-부여) <br>
